@@ -13,7 +13,7 @@ function App() {
   return (
     <div className="tooDooApp">
       <AddTask newTodo={newTodo} todoes={todoes} setTodo={setTodo}  setNewTodo={setNewTodo} />
-      <DisplayTask todoes={todoes} />
+      <DisplayTask todoes={todoes} setTodo={setTodo} />
     </div>
   )
 }

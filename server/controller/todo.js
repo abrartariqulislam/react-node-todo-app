@@ -5,7 +5,7 @@ const Todo = require("../model/todoModel")
 const findAllTask = async (req, res, next)=>{
     try {  
     const findTodo = await Todo.find({})
-    res.send(findTodo)
+    res.send(findTodo.reverse())
 
     } catch(error){
         next (createHttpError(error))
@@ -23,7 +23,38 @@ const addTask = async (req, res, next)=>{
 
         if(todo){
             const findTodo = await Todo.find({})
-            res.send(findTodo)
+            res.send(findTodo.reverse())
+        }
+
+    } catch(error){
+        next (createHttpError(error))
+    }
+}
+
+// delete task in mongoose
+const deleteTask = async (req, res, next)=>{
+    try {
+      const deleteTask = await Todo.findOneAndDelete({_id: req.params.id})
+        if(deleteTask){
+            const findTodo = await Todo.find({})
+            res.send(findTodo.reverse())
+        }
+
+    } catch(error){
+        next (createHttpError(error))
+    }
+}
+
+// change task status in mongoose
+const changeStatusTask = async (req, res, next)=>{
+    try {
+      const TaskStatus = await Todo.findOne({_id: req.params.id})
+      const currentStatus = TaskStatus.status === "Incomplete" ? "Completed" : "Incomplete"
+      const ChangeStatus = await Todo.updateOne({_id: req.params.id},{$set:{status: currentStatus}})
+        
+      if(ChangeStatus){
+            const findTodo = await Todo.find({})
+            res.send(findTodo.reverse())
         }
 
     } catch(error){
@@ -34,4 +65,6 @@ const addTask = async (req, res, next)=>{
 module.exports = {
     addTask,
     findAllTask,
+    deleteTask,
+    changeStatusTask,
 }

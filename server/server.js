@@ -3,7 +3,7 @@ const express = require("express")
 const mongoose = require("mongoose")
 const dotenv = require("dotenv")
 const cors = require("cors")
-const { addTask, findAllTask } = require("./controller/todo")
+const { addTask, findAllTask, deleteTask, changeStatusTask } = require("./controller/todo")
 
 
 // app initialize
@@ -23,6 +23,8 @@ app.use(express.static("public"))
 // routes
 app.get("/api/todo", findAllTask)
 app.post("/api/todo", addTask)
+app.delete("/api/todo/:id", deleteTask)
+app.put("/api/todo/:id", changeStatusTask)
 
 
 
