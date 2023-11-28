@@ -1,68 +1,126 @@
-:root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
-body {
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;0,900;1,300;1,400;1,500;1,700;1,900&display=swap");
+* {
+  box-sizing: border-box;
   margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
 }
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+ul {
+  list-style: none;
 }
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
+body {
+    background-color: #cadffc8e;
   }
-  a:hover {
-    color: #747bff;
+  #root {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 2rem;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
   }
-  button {
-    background-color: #f9f9f9;
+  .tooDooApp {
+    flex-basis: 100%;
   }
-}
+  .tooDooApp h1 {
+    text-align: center;
+    background-color: #97a1d3;
+    max-width: 700px;
+    margin: 20px auto;
+    padding: 10px 0 12px 0;
+    border-radius: 8px;
+    color: #003341;
+  }
+  .TaskFelid {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    background-color: #97a1d3;
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 30px 20px;
+    border-radius: 10px;
+    margin-bottom: 50px;
+  }
+  .TaskFelid .inputField,
+  .TaskContainer li p input {
+    background: #b9ebc6;
+    color: #413b35;
+    height: 45px;
+    border: unset;
+    border-radius: 6px;
+    font-size: 16px;
+    padding-left: 10px;
+    flex-grow: 1;
+  }
+  .TaskFelid .inputField:focus ,.TaskContainer li p input:focus {
+    outline: 2px solid #003341;
+  }
+  .TaskFelid .addBtn,
+  .edit,
+  .status,
+  .delete {
+    background: #32c49d;
+    color: #fff;
+    font-size: 18px;
+    border-radius: 6px;
+    padding: 10px;
+    border: unset;
+    height: 45px;
+    transition: all 0.1s;
+  }
+  .TaskContainer {
+    max-width: 700px;
+    margin: 0 auto;
+  }
+  .TaskContainer li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    background-color: #97a1d3;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    color: #003341;
+    font-size: 24px;
+  }
+  .TaskContainer li p {
+    flex-grow: 1;
+    text-align: left;
+  }
+  .TaskContainer li p input {
+    width: 100%;
+    height: 40px;
+  }
+  .TaskContainer li .taskBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+  .TaskContainer li .taskBtn .edit {
+    width: 80px;
+    height: 40px;
+    background: #004460;
+    transition: all 0.1s;
+  }
+  .TaskContainer li .taskBtn .status {
+    height: 40px;
+    background: #6b228b;
+    transition: all 0.1s;
+  }
+  .TaskContainer li .taskBtn .delete {
+    width: 80px;
+    height: 40px;
+    background: #be042e;
+    transition: all 0.05s;
+  }
+  .changeStatus {
+    text-decoration: line-through;
+    color: #00334198;
+  }  
