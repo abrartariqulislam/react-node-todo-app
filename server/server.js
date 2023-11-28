@@ -3,6 +3,7 @@ const express = require("express")
 const mongoose = require("mongoose")
 const dotenv = require("dotenv")
 const cors = require("cors")
+const { addTask, findAllTask } = require("./controller/todo")
 
 
 // app initialize
@@ -18,7 +19,10 @@ app.use(express.json())
 app.use(express.urlencoded({extended:true}))
 app.use(express.static("public"))
 
+
 // routes
+app.get("/api/todo", findAllTask)
+app.post("/api/todo", addTask)
 
 
 
