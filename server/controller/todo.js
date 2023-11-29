@@ -62,9 +62,25 @@ const changeStatusTask = async (req, res, next)=>{
     }
 }
 
+// edit task  in mongoose
+const editTask = async (req, res, next)=>{
+    try {
+      const editTask = await Todo.findOneAndUpdate({_id: req.body._id},{$set:{name: req.body.name}})
+        
+      if(editTask){
+            const findTodo = await Todo.find({})
+            res.send(findTodo.reverse())
+        }
+
+    } catch(error){
+        next (createHttpError(error))
+    }
+}
+
 module.exports = {
     addTask,
     findAllTask,
     deleteTask,
     changeStatusTask,
+    editTask,
 }

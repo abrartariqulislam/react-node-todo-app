@@ -30,10 +30,25 @@ const changeEditInputValue = (e)=>{
     name: e.target.value
   })
 }
-// edit task in database
+// find edit task 
 const editHandler = (e)=>{
   const findTask = todoes.find(todo => todo._id === e.target.id)
   setEditTodo(findTask)
+}
+// edit task in database
+const editTaskSubmitHandler = ()=>{
+fetch("/api/edit-todo",{
+  method:"PUT",
+  headers:{
+    "content-type":"Application/json"
+  },
+  body: JSON.stringify(editTodo)
+})
+.then(r=> r.json())
+.then(data=>{
+  setTodo(data)
+  setEditTodo(null)
+})
 }
 
   return (
@@ -47,11 +62,18 @@ const editHandler = (e)=>{
       }
        
        <p>{todo.status}</p>
-       <div className="taskBtn">
+
+       {editTodo && editTodo._id === todo._id ?
+        <div className="taskBtn">
+        <button className="saveBtn"  disabled={!editTodo.name} onClick={editTaskSubmitHandler}>Save</button> 
+        </div> :
+         <div className="taskBtn">
          <button className="edit" onClick={editHandler} id={todo._id}>Edit</button>
          <button className="status" onClick={changeStatusHandler} id={todo._id}>Change Status</button>
          <button className="delete" onClick={deleteHandler} id={todo._id}>Delete</button>
        </div>
+       }
+     
      </li>
     })}
 

@@ -63,7 +63,8 @@ body {
   .TaskFelid .addBtn,
   .edit,
   .status,
-  .delete {
+  .delete,
+  .saveBtn {
     background: #32c49d;
     color: #fff;
     font-size: 18px;
@@ -102,6 +103,7 @@ body {
     align-items: center;
     justify-content: center;
     gap: 10px;
+    flex-basis: 320px;
   }
   .TaskContainer li .taskBtn .edit {
     width: 80px;
@@ -123,4 +125,10 @@ body {
   .changeStatus {
     text-decoration: line-through;
     color: #00334198;
+  }
+  .TaskContainer li .taskBtn .saveBtn{
+    width: 150px;
+    font-size: 20px;
+    letter-spacing: 1px;
+    background-color: orange;
   }  
