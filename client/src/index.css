@@ -47,7 +47,7 @@ body {
     margin-bottom: 50px;
   }
   .TaskFelid .inputField,
-  .TaskContainer li p input {
+  .TaskContainer .editInputField{
     background: #b9ebc6;
     color: #413b35;
     height: 45px;
@@ -57,7 +57,7 @@ body {
     padding-left: 10px;
     flex-grow: 1;
   }
-  .TaskFelid .inputField:focus ,.TaskContainer li p input:focus {
+  .TaskFelid .inputField:focus ,.TaskContainer .editInputField:focus {
     outline: 2px solid #003341;
   }
   .TaskFelid .addBtn,

@@ -1,8 +1,10 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 
-const AddTask = (props) => {
-  const {newTodo, setNewTodo, setTodo} = props
+const AddTask = ({setTodo}) => {
+  const [newTodo, setNewTodo] = useState({
+    name:""
+  })
 
   // find all data form database
   useEffect(()=>{

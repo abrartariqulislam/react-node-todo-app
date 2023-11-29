@@ -1,5 +1,7 @@
+import { useState } from "react";
 
 const DisplayTask = ({todoes, setTodo}) => {
+  const [editTodo, setEditTodo] = useState(null)
 
   // delete task in database
   const deleteHandler = (e)=>{
@@ -21,10 +23,17 @@ const changeStatusHandler = (e)=>{
       setTodo(data)
   })
 }
+// change edit input value
+const changeEditInputValue = (e)=>{
+  setEditTodo({
+    ...editTodo,
+    name: e.target.value
+  })
+}
 // edit task in database
 const editHandler = (e)=>{
   const findTask = todoes.find(todo => todo._id === e.target.id)
-  console.log(findTask);
+  setEditTodo(findTask)
 }
 
   return (
@@ -32,7 +41,11 @@ const editHandler = (e)=>{
     {todoes.map((todo, index)=>{
       return <li key={todo._id}>
        <p>{index + 1}</p>
-       <p className="name">{todo.name}</p>
+       { editTodo && editTodo._id === todo._id ?
+       <input type="text" value={editTodo.name} onChange={changeEditInputValue}  className="editInputField" />:
+       <p className="name">{todo.name}</p> 
+      }
+       
        <p>{todo.status}</p>
        <div className="taskBtn">
          <button className="edit" onClick={editHandler} id={todo._id}>Edit</button>
