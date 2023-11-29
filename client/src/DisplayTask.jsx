@@ -21,6 +21,11 @@ const changeStatusHandler = (e)=>{
       setTodo(data)
   })
 }
+// edit task in database
+const editHandler = (e)=>{
+  const findTask = todoes.find(todo => todo._id === e.target.id)
+  console.log(findTask);
+}
 
   return (
     <ul className="TaskContainer">
@@ -30,7 +35,7 @@ const changeStatusHandler = (e)=>{
        <p className="name">{todo.name}</p>
        <p>{todo.status}</p>
        <div className="taskBtn">
-         <button className="edit" id={todo._id}>Edit</button>
+         <button className="edit" onClick={editHandler} id={todo._id}>Edit</button>
          <button className="status" onClick={changeStatusHandler} id={todo._id}>Change Status</button>
          <button className="delete" onClick={deleteHandler} id={todo._id}>Delete</button>
        </div>
