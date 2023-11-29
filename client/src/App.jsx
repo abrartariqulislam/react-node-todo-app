@@ -8,7 +8,11 @@ function App() {
   return (
     <div className="tooDooApp">
       <AddTask todoes={todoes} setTodo={setTodo}  />
-      <DisplayTask todoes={todoes} setTodo={setTodo} />
+      {todoes.length ? 
+      <DisplayTask todoes={todoes} setTodo={setTodo} /> :
+      <p className='noTask'> You didn&lsquo;t add any task.  </p>
+      }
+      
     </div>
   )
 }

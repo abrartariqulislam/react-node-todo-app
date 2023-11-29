@@ -28,7 +28,7 @@ body {
   .tooDooApp h1 {
     text-align: center;
     background-color: #97a1d3;
-    max-width: 700px;
+    max-width: 900px;
     margin: 20px auto;
     padding: 10px 0 12px 0;
     border-radius: 8px;
@@ -40,7 +40,7 @@ body {
     justify-content: space-between;
     gap: 15px;
     background-color: #97a1d3;
-    max-width: 700px;
+    max-width: 900px;
     margin: 0 auto;
     padding: 30px 20px;
     border-radius: 10px;
@@ -90,9 +90,15 @@ body {
     color: #003341;
     font-size: 24px;
   }
+  .TaskContainer li:first-child{
+    background-color: #32c49d;
+  }
   .TaskContainer li p.name {
     flex-grow: 1;
     text-align: left;
+  }
+  .TaskContainer li .taskStatus{
+    margin-left: 100px;
   }
   .TaskContainer li p input {
     width: 100%;
@@ -132,3 +138,13 @@ body {
     letter-spacing: 1px;
     background-color: orange;
   }  
+  .noTask{
+    max-width: 900px;
+    color: #fff;
+    background-color: #be042e;
+    margin: 0 auto;
+    padding: 15px;
+    border-radius: 10px;
+    font-size: 24px;
+    letter-spacing: 1.5px;
+  }

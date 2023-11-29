@@ -1,5 +1,20 @@
 import { useState } from "react";
 
+// task headers
+const TaskHeader = ()=>{
+
+  return (
+    <li key="01">
+      <p>No</p>
+      <p className="headerName">Task name</p> 
+      <p className="taskStatus">Status</p>
+      <div className="taskBtn">Action</div>
+    </li>
+)}
+
+
+
+// task list
 const DisplayTask = ({todoes, setTodo}) => {
   const [editTodo, setEditTodo] = useState(null)
 
@@ -53,6 +68,9 @@ fetch("/api/edit-todo",{
 
   return (
     <ul className="TaskContainer">
+     <TaskHeader /> 
+
+     {/* task list */}
     {todoes.map((todo, index)=>{
       return <li key={todo._id}>
        <p>{index + 1}</p>
@@ -77,8 +95,8 @@ fetch("/api/edit-todo",{
      </li>
     })}
 
-     
     </ul>
+  
   );
 };
 
